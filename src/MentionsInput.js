@@ -382,6 +382,8 @@ const MentionsInput = React.createClass({
   },
 
   handleBlur: function(ev) {
+    // ignore a blur event which is fired when the 'Done' button in iOS virtual keyboard is pressed
+    if(ev.relatedTarget == null) return;
     // only reset selection if the mousedown happened on an element
     // other than the suggestions overlay
     if(!this._suggestionsMouseDown) {
